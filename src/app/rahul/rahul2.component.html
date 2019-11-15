@@ -1,0 +1,14 @@
+<form>
+	<div class="form-group">
+<label for="id1">First Name</label>
+<input required ngModel id="id1" type="text" class="form.control" name="v1" #v1="ngModel" (change)="log(v1)">
+<div class="alert alert-danger" *ngIf="v1.touched && !v1.valid " >First Name Is Required</div>
+</div>
+<div class="form-group">
+<label for="id2">Value-2</label>
+<textarea id="id2" rows="5" cols="20" class="form.control"></textarea>
+</div>
+
+<button class="btn btn-primary">Submit</button>
+
+</form>

@@ -1,0 +1,18 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+	<div class="form-group">
+<label for="id1">First Name</label>
+<input required minlength="2" maxlength="10" ngModel id="id1" type="text" class="form.control" name="v1" #v1="ngModel" (change)="log(v1)">
+<div class="alert alert-danger" *ngIf="v1.touched && !v1.valid " >
+<div *ngIf="v1.errors.required"> First Name Is Required</div>
+<div *ngIf="v1.errors.minlength"> Minimuim Character length should be 2</div>
+<div *ngIf="v1.errors.maxlength"> Maximum Character length should be 10</div>
+<div *ngIf="v1.errors.pattern"> Pattern Mismatch</div>
+</div>
+</div>
+<div class="form-group">
+<label for="id2">Discription</label>
+<textarea id="id2" rows="5" cols="20" class="form.control"></textarea>
+</div>
+<button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+
+</form>

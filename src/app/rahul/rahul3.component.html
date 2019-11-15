@@ -1,0 +1,26 @@
+<form #frm="ngForm" (ngSubmit)="onSubmit(frm)">
+	<div class="form-group">
+<label for="id1">First Name</label>
+<input required ngModel id="id1" type="text" class="form.control" name="v1" #v1="ngModel" (change)="log(v1)">
+<div class="alert alert-danger" *ngIf="v1.touched && !v1.valid " >
+<div *ngIf="V1.errors.required"> First Name Is Required</div>
+<div *ngIf="V1.errors.minlength"> Minimuim Character length should be 2</div>
+<div *ngIf="V1.errors.maxlength"> Maximum Character length should be 10</div>
+<div *ngIf="V1.errors.pattern"> Pattern Mismatch</div>
+</div>
+<div class="form-group">
+<label for="id2">Value-2</label>
+<textarea id="id2" rows="5" cols="20" class="form.control"></textarea>
+</div>
+
+<div class="checkbox">
+	<label>Qualifiation</label>
+	<br>Under-Graduate<input type="checkbox" id="chkid1" ngModel name="qual1">
+	<br>Post-Graduate<input type="checkbox" id="chkid2" ngModel name="qual2">
+</div><p>
+	<p>
+		{{frm.value | json}}
+	</p>
+<button class="btn btn-primary">Submit</button>
+
+</form>
